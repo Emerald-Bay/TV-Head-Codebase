@@ -50,9 +50,38 @@ enum ColorType {
     COLOR_OFF
 };
 
+enum Letter {
+    A,
+    B,
+    C,
+    D,
+    E,
+    F,
+    G,
+    H,
+    I,
+    J,
+    K,
+    L,
+    M,
+    N,
+    O,
+    P,
+    Q,
+    R,
+    S,
+    T,
+    U,
+    V,
+    W,
+    X,
+    Y,
+    Z
+}
+
 typedef void (*DesignFunction)();
 
-unsigned char currentPatternIndex = -1;
+char currentPatternIndex = -1;
 
 struct Raindrop {
     char x;
@@ -71,8 +100,9 @@ void designSmiley();
 void designQuestionMark();
 void designEye();
 void designMatrix();
-// void designSpots();
-// void designFallingHearts();
+void designFireworks();
+void designDVDLogo();
+void designLife();
 void getColorFromString(ColorType colorName, uint8_t &hue, uint8_t &saturation, uint8_t &brightness);
 void paintPixel(char x, char y, ColorType colorName);
 int getLEDIndex (char x, char y);
@@ -82,9 +112,10 @@ const DesignFunction DESIGNS[] = {
     designSmiley,
     designQuestionMark,
     designEye,
-    designMatrix
-    // designSpots,
-    // designFallingHearts
+    designMatrix,
+    designFireworks,
+    designDVDLogo,
+    designLife
 };
 
 const char NUM_DESIGNS = sizeof(DESIGNS) / sizeof(DesignFunction);
@@ -94,6 +125,7 @@ void setup() {
   FastLED.addLeds<LED_TYPE, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
   FastLED.setBrightness(BRIGHTNESS);
   fill_solid(leds, NUM_LEDS, CRGB(0, 0, 0));
+  nextDesign();
 
   FastLED.show();
 
@@ -143,13 +175,17 @@ void loop() {
       designMatrix();
       break;
     
-    // case 4:
-    //   designSpots();
-    //   break;
+    case 4:
+      designFireworks();
+      break;
 
-    // case 5:
-    //   designFallingHearts();
-    //   break;
+    case 5:
+      designDVDLogo();
+      break;
+
+    case 6:
+      designLife();
+      break;
 
     default:
       break;
@@ -243,7 +279,11 @@ void getColorType(ColorType colorName, uint8_t &hue, uint8_t &saturation, uint8_
     return;
 }
 
-void paintPixel(char x, char y, ColorType colorName) {  
+void paintPixel(char x, char y, ColorType colorName) {
+  if (x < 0 || x >= XDIM || y < 0 || y >= YDIM) { // Don't paint leds outside of the screen dimensions
+    return;
+  }
+
   uint8_t hue = 0;
   uint8_t saturation = 0;
   uint8_t brightness = 0;
