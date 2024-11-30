@@ -1,4 +1,4 @@
-CRT TV Head Costume
+ # CRT TV Head Costume
 
 This project powers a CRT TV Head Halloween costume, built using an Arduino-Uno microcontroller and WS2812B LEDs. The code controls dynamic LED patterns, handles button/PS-2 input for selecting designs/displaying custom text, and includes reusable LED functions.
 Table of Contents
@@ -14,7 +14,7 @@ Table of Contents
     Inspiration
     License
 
-Introduction
+## Introduction
 
 This repository contains the firmware for a wearable CRT TV head with a LED matrix as its "screen." It is designed for cosplay or Halloween, displaying a variety of animated patterns and effects.
 Features
@@ -24,7 +24,7 @@ Features
     Compact Design: Optimized for Arduino-Uno microcontrollers.
     Customizable: Easily add new designs and modify LED configurations.
 
-Hardware Requirements
+## Hardware Requirements
 
     Microcontroller: Arduino Uno, Nano, or equivalent.
     LEDs: WS2812B (Neopixel) strip, at least 300 LEDs for 1-1 code reuse.
@@ -32,12 +32,12 @@ Hardware Requirements
     Keyboard: PS-2 Keyboard for text input and design selection.
     Power Supply: 5V power supply capable of providing sufficient current for your LED array.
 
-Software Requirements
+## Software Requirements
 
     Arduino IDE
     FastLED library (installed via Library Manager)
 
-Setup
+## Setup
 
     Clone the Repository:
 
@@ -63,8 +63,8 @@ Setup
         Select the appropriate board and port in the Arduino IDE.
         Compile and upload the code to the microcontroller.
 
-Code Overview
-crt.ino
+## Code Overview
+### crt.ino
 
 This file contains:
 
@@ -75,20 +75,20 @@ This file contains:
         getColorType(): Maps predefined colors to HSV values.
         nextDesign(): Cycles to the next design pattern.
 
-designs.ino
+### designs.ino
 
 This file:
 
     Defines individual LED designs as functions, utilizing custom code to display a variety of fun/dynamic designs. 
     Also included are several helper functions to assist in the more complex designs like life, text display, etc.
 
-Inspiration
+## Inspiration
 
 I've always loved making cool halloween costumes, but working to pay for University and completing coursework has eaten up a lot of my time recently. With my 7th semester almost over and graduation in sight,
 a fire was lit under me to get back into the swing of things, and having workshoped this idea in the back of my head for years I decided that now was the time. Big shoutout to Vivian (Rose.Systems) for 
 some of her technical guides and providing a fantastic jumping off point (https://rose.systems/tv_head/). Also big shoutout to the USC Maker Space for letting me store and work on this project in between classes,
 y'all who work there are an absolute blessing to the student body and were extremely helpful.
 
-License
+## License
 
 This project is licensed under the MIT License. You are free to use, modify, and distribute this code as long as proper credit is given (or not lol do what you want with the code and make cool stuff).
