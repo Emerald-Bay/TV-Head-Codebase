@@ -11,6 +11,7 @@ Table of Contents
     Code Overview
         crt.ino
         designs.ino
+    Inspiration
     License
 
 Introduction
@@ -81,8 +82,13 @@ This file:
     Defines individual LED designs as functions, utilizing custom code to display a variety of fun/dynamic designs. 
     Also included are several helper functions to assist in the more complex designs like life, text display, etc.
 
+Inspiration
+
+I've always loved making cool halloween costumes, but working to pay for University and completing coursework has eaten up a lot of my time recently. With my 7th semester almost over and graduation in sight,
+a fire was lit under me to get back into the swing of things, and having workshoped this idea in the back of my head for years I decided that now was the time. Big shoutout to Vivian (Rose.Systems) for 
+some of her technical guides and providing a fantastic jumping off point (https://rose.systems/tv_head/). Also big shoutout to the USC Maker Space for letting me store and work on this project in between classes,
+y'all who work there are an absolute blessing to the student body and were extremely helpful.
+
 License
 
-This project is licensed under the MIT License. You are free to use, modify, and distribute this code as long as proper credit is given.
-
-Let me know if you'd like any specific edits or additional sections!
+This project is licensed under the MIT License. You are free to use, modify, and distribute this code as long as proper credit is given (or not lol do what you want with the code and make cool stuff).
